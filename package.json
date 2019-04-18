@@ -1,0 +1,37 @@
+{
+  "name": "sab-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.15.2",
+    "babel-plugin-import": "^1.11.0",
+    "customize-cra": "^0.2.12",
+    "formik": "^1.5.1",
+    "react": "^16.8.6",
+    "react-app-rewired": "^2.1.1",
+    "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^5.0.0",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "2.1.8",
+    "redux": "^4.0.1",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-scripts test",
+    "eject": "react-app-rewired test"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
