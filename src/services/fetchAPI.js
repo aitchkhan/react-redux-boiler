@@ -1,7 +1,8 @@
 // import TokenService from "./token";
 import store from "../store";
 import * as loaderActions from "../actions/loader";
-// import { logout } from "../actions/app";
+import { getAuthToken } from './storage'
+import { logout } from "../actions/auth";
 
 // const tokenService = TokenService.getInstance();
 let pendingRequests = 0;
@@ -37,19 +38,18 @@ export const fetchAPI = async (
   const headers = {
     "content-type": "application/json"
   };
-  //   if (!isPublic) {
-  //     try {
-  //     //   const authToken = await tokenService.getToken();
-  //       if (authToken) {
-  //         headers.Authorization = `Bearer ${authToken}`;
-  //       }
-  //     } catch (error) {
-  //       store.dispatch(logout());
-  //       throw error;
-  //     }
-  //   }
+  if (!isPublic) {
+    try {
+      const authToken = getAuthToken();
+      if (authToken) {
+        headers.Authorization = `Bearer ${authToken}`;
+      }
+    } catch (error) {
+      store.dispatch(logout()); // TODO: create logout
+      throw error;
+    }
+  }
   pendingRequests = showLoader(isLoaderVisible, pendingRequests);
-  //   return fetch(`${env.BASE_URL}${url}`, {
   return fetch(`${BASE_URL}${url}`, {
     body: data ? JSON.stringify(data) : null,
     cache: "no-cache",

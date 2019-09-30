@@ -12,3 +12,5 @@ export const asyncLogin = credentials => dispatch => [
     dispatch(setLoginData(response))
   )
 ];
+
+export const logout = () => {}
